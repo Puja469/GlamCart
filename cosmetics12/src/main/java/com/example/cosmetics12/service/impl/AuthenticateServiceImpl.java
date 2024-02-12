@@ -3,6 +3,7 @@ package com.example.cosmetics12.service.impl;
 
 
 
+import com.example.cosmetics12.entity.User;
 import com.example.cosmetics12.pojo.AuthenticateRequest;
 import com.example.cosmetics12.pojo.AuthenticateResponse;
 import com.example.cosmetics12.repository.UserRepository;
@@ -34,9 +35,10 @@ public class AuthenticateServiceImpl implements AuthenticateService {
                 )
         );
 
-        UserDetails userDetails = userRepo.getUserByEmail(authenticateRequest.getEmail())
+        User user= userRepo.getUserByEmail(authenticateRequest.getEmail())
                 .orElseThrow(() -> new EntityNotFoundException("User not found."));
+        UserDetails userDetails = (UserDetails) user;
         String jwtToken = jwtService.generateToken(userDetails);
-        return AuthenticateResponse.builder().token(jwtToken).build();
+        return AuthenticateResponse.builder().token(jwtToken).userId(user.getId()).isAdmin(user.getId()==3).build();
     }
 }
