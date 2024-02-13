@@ -17,32 +17,32 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class CategoryServiceImpl implements CategoryService {
-    private final CategoryRepository categoryRepo;
+    private final CategoryRepository categoryRepository;
     @Override
     public void saveCategory(CategoryPojo categoryPojo){
         Category category;
         if(categoryPojo.getId()!=null) {
-            category = categoryRepo.findById(categoryPojo.getId())
+            category = categoryRepository.findById(categoryPojo.getId())
                     .orElseThrow(() -> new EntityNotFoundException("Category not found with ID: " + categoryPojo.getId()));
         }
         else{
             category = new Category();
         }
         category.setName(categoryPojo.getName());
-        categoryRepo.save(category);
+        categoryRepository.save(category);
     }
 
     @Override
     public List<Category> findAll() {
-        return categoryRepo.findAll();
+        return categoryRepository.findAll();
     }
     @Override
     public void deleteById(Integer id) {
-        categoryRepo.deleteById(id);
+        categoryRepository.deleteById(id);
     }
     @Override
     public Optional<Category> findById(Integer id) {
-        return categoryRepo.findById(id);
+        return categoryRepository.findById(id);
     }
 }
 

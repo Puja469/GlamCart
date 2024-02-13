@@ -1,8 +1,8 @@
 package com.example.cosmetics12;
 
-
 import com.example.cosmetics12.entity.Category;
-import com.example.cosmetics12.entity.Product;
+
+import com.example.cosmetics12.repository.CategoryRepository;
 import com.example.cosmetics12.repository.ProductRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer;
@@ -17,37 +17,34 @@ import java.util.Optional;
 
 @DataJpaTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class ProductRepositoryTest {
+public class CategoryRepositoryTest {
+
 
     @Autowired
-    private ProductRepository productRepository;
-
+    private CategoryRepository categoryRepository;
 
     @Test
     @Rollback(value = false)
     @Order(1)
-    public void saveProduct() {
-
+    public void saveCategory() {
         Category category = new Category();
-
-        Product product = new Product();
-        product.setDescription("Testing description");
-        product.setProductName("Testing productname");
-        product.setPrice(150);
-        product.setQuantityInStock(12);
-        product.setCategory(category);
+        category.setName("Testing categoryname");
 
 
-        product = productRepository.save(product);
+        category = categoryRepository.save(category);
+        Assertions.assertThat(category.getId()).isGreaterThan(0);
 
-        Assertions.assertThat(product.getId()).isGreaterThan(0);
 
     }
 
     @Test
     @Order(2)
-    public void findById() {
 
+    public void findById() {
+        Category category= categoryRepository.findById(1).get();
+        Assertions.assertThat(category.getId()).isEqualTo(1);
 
     }
-}
+    }
+
+
