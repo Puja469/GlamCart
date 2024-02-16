@@ -29,14 +29,14 @@ public class UserRepositoryTest {
 
     public void saveUser() {
         User user = new User();
-        user.setFirstName("Niraj");
-        user.setLastName("Giri");
-        user.setUserName("niraj1");
-        user.setEmail("niraj@gmail.com");
-        user.setPassword("niraj123");
+        user.setFirstName("Puja");
+        user.setLastName("Purbey");
+        user.setUserName("puja1");
+        user.setEmail("puja@gmail.com");
+        user.setPassword("Puja123");
         User savedUser = userRepository.save(user);
 
-        // Print the ID of the saved user
+
         System.out.println("Saved User ID: " + savedUser.getId());
         Assertions.assertThat(savedUser.getId()).isGreaterThan(0);
 
@@ -66,9 +66,9 @@ public class UserRepositoryTest {
     @Order(4)
     public void updateUser(){
         User user=userRepository.findById(1).get();
-        user.setFirstName("Aaruph");
+        user.setFirstName("Anu");
         user=userRepository.save(user);
-        Assertions.assertThat(user.getFirstName()).isEqualTo("Aaruph");
+        Assertions.assertThat(user.getFirstName()).isEqualTo("Anu");
 
     }
 
