@@ -1,8 +1,7 @@
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
-import { isLoggedIn, doLogout } from '../auth/authService';
-import logo from '../../public/Images/logo1.png';
-import { FaShoppingCart } from 'react-icons/fa';
+import {  doLogout } from '../auth/authService';
+import logo from '../../src/Images/logo1.png';
 
 const header = () => {
   const handleLogout = () => {
@@ -80,16 +79,16 @@ const header = () => {
         className='shadow h-14'
       >
         <div className='container-xl'>
-          {/* Logo */}
+        
           <Navbar.Brand as={NavLink} to='/'>
             <img
               src={logo}
               className='avatar rounded me-lg-10'
               alt='Logo'
-              style={{ height: '30px', width: 'auto' }}
+              style={{ height: '25px', width: 'auto' }}
             />
           </Navbar.Brand>
-          {/* Navbar toggle */}
+         
           <Navbar.Toggle aria-controls='responsive-navbar-nav' />
           {/* Collapse */}
           <Navbar.Collapse id='responsive-navbar-nav'>
@@ -122,7 +121,7 @@ const header = () => {
                   className='nav-icon position-relative text-decoration-none'
                   to='/cart'
                 >
-                  <FaShoppingCart style={{ height: '25px', width: '30px', cursor: 'pointer' }} />
+                  <i className='fa fa-fw fa-cart-arrow-down text-dark me-2 '></i>
                   <span
                     style={{ backgroundColor: '#e03a3c' }}
                     className='position-absolute top-0 left-100 translate-middle badge rounded-pill  text-white'
@@ -147,14 +146,14 @@ const header = () => {
                     <Nav.Link
                       as={NavLink}
                       to='/register'
-                      style={{ backgroundColor: '#e03a3c' }}
+                      style={{ backgroundColor: '#FFC0CB' }}
                       className='btn btn-sm text-white  ms-xs-3 '
                     >
                       Register
                     </Nav.Link>
                   </div>
                 </>
-              ) : (
+              {/* ) : ( */}
                 {/* <NavDropdown
                   title={<i className='fa fa-fw fa-user text-dark mr-3'></i>}
                   id='basic-nav-dropdown'

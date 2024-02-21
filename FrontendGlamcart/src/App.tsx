@@ -10,6 +10,8 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 
 import Contact from './pages/Contact';
+import Cart from './pages/Cart';
+import Product from './pages/Product';
 
 
 
@@ -30,7 +32,9 @@ const App:React.FC = () => {
       <Route path="/" element={<Home/>}/>
       <Route path="/register" element={<Signup/>}/>
       <Route path="/contact" element={<Contact/>}/>
-      
+      <Route path="/cart" element={<Cart/>}/>
+      <Route path="/product" element={<Product/>}/>
+     
 
       
 

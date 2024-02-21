@@ -1,7 +1,7 @@
 import { Col, Container, Image, Row } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import './footer.css';
-import logo from '../../../public/Images/logo1.png';
+import logo from '../../Images/logo1.png';
 
 const DownFooter = () => {
   return (

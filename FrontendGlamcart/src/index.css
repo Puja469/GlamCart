@@ -124,9 +124,7 @@ a {
   text-decoration: none;
   color: inherit;
 }
-.rating span {
-  margin: 0 2px;
-}
+
 
 #main {
   min-height: 80vh;
@@ -144,7 +142,7 @@ a {
 
 .nav-link span {
   font-size: 1rem;
-  height:2rem;
+  /* height:2rem; */
   transition: all 0.2s ease;
 }
 

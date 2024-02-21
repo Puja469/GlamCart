@@ -20,7 +20,8 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ activePage }) => {
         <>
             <div className={"admin-sidebar"}>
                 <div className={"sidebar-brand"}>
-                    <h1> <span><TiHome style={{fontSize:"2.1rem", marginBottom:"-4px", color:"black"}} /></span>GlamCart</h1>
+                   <span><TiHome style={{fontSize:"2.1rem", marginBottom:"-4px", color:"white"}} /></span>
+                   <img src={"/src/Images/logo1.png"} alt={"GlamCart Logo"} style={{ marginLeft: "5px", height: "22px", width: "auto" }} />
                 </div>
 
                 <div className={"sidebar-options"}>

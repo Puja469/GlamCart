@@ -1,6 +1,4 @@
 
-
-
 import "../../assets/css/admin/ManageUser.css";
 import {useLocation} from "react-router-dom";
 import { FaSearch  } from "react-icons/fa";
