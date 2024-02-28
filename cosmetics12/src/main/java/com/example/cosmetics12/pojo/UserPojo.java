@@ -16,11 +16,10 @@ import lombok.Setter;
 public class UserPojo {
     private Integer id;
 
-    @NotNull(message="first name is required")
-    private String firstName;
+    @NotNull(message="full name is required")
+    private String fullName;
 
-    @NotNull
-    private String lastName;
+
 
     @NotNull
     private String userName;

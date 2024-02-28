@@ -26,11 +26,9 @@ public class User implements UserDetails {
     @GeneratedValue(generator="user_seq_gen", strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    @Column(name="first_name", nullable = false, length = 255)
-    private String firstName;
+    @Column(name="full_name", nullable = false, length = 255)
+    private String fullName;
 
-    @Column(name="last_name", nullable = false)
-    private String lastName;
 
     @Column(name="user_name", nullable = false)
     private String userName;

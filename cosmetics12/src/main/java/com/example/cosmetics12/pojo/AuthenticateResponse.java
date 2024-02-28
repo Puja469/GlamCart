@@ -16,4 +16,6 @@ public class AuthenticateResponse {
     private Integer userId;
 
     private boolean isAdmin;
+
+    private String userName;
 }

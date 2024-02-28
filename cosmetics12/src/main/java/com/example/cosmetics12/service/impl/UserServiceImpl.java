@@ -30,8 +30,7 @@ public class UserServiceImpl implements UserService {
                     .orElseThrow(()-> new NoSuchElementException("No data found"));
         }
 
-        user.setFirstName(userPojo.getFirstName());
-        user.setLastName(userPojo.getLastName());
+        user.setFullName(userPojo.getFullName());
         user.setUserName(userPojo.getUserName());
         user.setEmail(userPojo.getEmail());
         user.setPassword(PasswordEncoderUtil.getInstance().encode(userPojo.getPassword()));
