@@ -4,6 +4,7 @@ package com.example.cosmetics12.controller;
 
 
 import com.example.cosmetics12.entity.User;
+import com.example.cosmetics12.pojo.NewPasswordPojo;
 import com.example.cosmetics12.pojo.UserPojo;
 import com.example.cosmetics12.service.UserService;
 import jakarta.validation.Valid;
@@ -43,4 +44,14 @@ public class UserController {
         userService.deleteById(id);
     }
 
+    @GetMapping("/getByEmail/{email}")
+    public Optional<User> getByEmail(@PathVariable("email") String email) {
+        return this.userService.getByEmail(email);
+    }
+
+    @PostMapping("/new-password")
+    public String setNewPassword(@RequestBody NewPasswordPojo newPasswordPojo){
+        userService.setNewPassword(newPasswordPojo);
+        return "password changed";
+    }
 }

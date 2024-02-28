@@ -50,7 +50,7 @@ public class EmailServiceImpl implements EmailService {
             String html = FreeMarkerTemplateUtils.processTemplateIntoString(template, model);
 
             mimeMessageHelper.setTo(emailRequest.getSendToEmail());
-            mimeMessageHelper.setFrom("binitaacharya2003@gmail.com");
+            mimeMessageHelper.setFrom("poojapurbey469@gmail.com");
             mimeMessageHelper.setText(html, true);
             mimeMessageHelper.setSubject("Registration");
 
@@ -82,13 +82,13 @@ public class EmailServiceImpl implements EmailService {
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(message, MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED, StandardCharsets.UTF_8.name());
 
             model.put("email", emailRequest.getSendToEmail());
-            model.put("url", "http://localhost:3000/change-password?token="+jwt);
+            model.put("url", "http://localhost:8082/change-password?token="+jwt);
 
             Template template = emailConfig.getTemplate("resetPassword.ftl");
             String html = FreeMarkerTemplateUtils.processTemplateIntoString(template, model);
 
             mimeMessageHelper.setTo(emailRequest.getSendToEmail());
-            mimeMessageHelper.setFrom("binitaacharya2004@gmail.com");
+            mimeMessageHelper.setFrom("poojapurbey469@gmail.com");
             mimeMessageHelper.setText(html, true);
             mimeMessageHelper.setSubject("Reset password");
 

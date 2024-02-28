@@ -5,6 +5,7 @@ package com.example.cosmetics12.service;
 
 
 import com.example.cosmetics12.entity.User;
+import com.example.cosmetics12.pojo.NewPasswordPojo;
 import com.example.cosmetics12.pojo.UserPojo;
 
 import java.util.List;
@@ -17,6 +18,10 @@ public interface UserService {
     List<User> getAllData();
 
     Optional<User> getById(Integer id);
+
+    Optional<User> getByEmail(String email);
+
+    String setNewPassword(NewPasswordPojo newPasswordPojo);
 
     void deleteById(Integer id);
 }
