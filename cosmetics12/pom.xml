@@ -26,26 +26,23 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency>
-		<groupId>io.cucumber</groupId>
-		<artifactId>cucumber-java</artifactId>
-		<version>7.1.0</version>
-		<scope>test</scope>
-	</dependency>
+
 
 
 		<dependency>
 			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-spring</artifactId>
-			<version>7.1.0</version>
-			<scope>test</scope>
+			<artifactId>cucumber-java</artifactId>
+			<version>5.0.0-RC1</version>
 		</dependency>
-
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-junit</artifactId>
-			<version>7.1.0</version>
-			<scope>test</scope>
+			<version>5.0.0-RC1</version>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-spring</artifactId>
+			<version>5.0.0-RC1</version>
 		</dependency>
 
 

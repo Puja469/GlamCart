@@ -29,8 +29,7 @@ public class UserRepositoryTest {
 
     public void saveUser() {
         User user = new User();
-        user.setFirstName("Puja");
-        user.setLastName("Purbey");
+        user.setFullName("Puja purbey");
         user.setUserName("puja1");
         user.setEmail("puja@gmail.com");
         user.setPassword("Puja123");
@@ -66,9 +65,9 @@ public class UserRepositoryTest {
     @Order(4)
     public void updateUser(){
         User user=userRepository.findById(1).get();
-        user.setFirstName("Anu");
+        user.setFullName("Anu Purbey");
         user=userRepository.save(user);
-        Assertions.assertThat(user.getFirstName()).isEqualTo("Anu");
+        Assertions.assertThat(user.getFullName()).isEqualTo("Anu Purbey");
 
     }
 
