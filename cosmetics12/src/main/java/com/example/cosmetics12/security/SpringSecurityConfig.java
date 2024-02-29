@@ -45,7 +45,7 @@ public class SpringSecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/authenticate","/user/save" ,"/public-resource","/product/**","/cart/save","/cart/getAll","/email/**","/user/new-password","/email/reset-password")
                 .permitAll()
-                .requestMatchers("/product/**")
+                .requestMatchers("/product/**","/user/getAll")
                 .hasAuthority("Admin")
                 .anyRequest()
                 .authenticated()

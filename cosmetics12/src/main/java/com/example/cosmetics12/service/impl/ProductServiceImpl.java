@@ -15,12 +15,15 @@ import com.example.cosmetics12.util.ImageToBase64;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -77,7 +80,12 @@ public class ProductServiceImpl implements ProductService {
         }).collect(Collectors.toList());
         return products;
     }
+    @Override
+    public Product updateProduct(Product product) {
 
+
+        return productRepository.save(product);
+    }
 
 
     @Override
@@ -88,6 +96,25 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void deleteProductById(Integer id) {
         productRepository.deleteById(id);
+    }
+
+
+    @Override
+    public void updateProductImage(Product existingProduct, MultipartFile newProductImage) throws IOException {
+        if (newProductImage != null && !newProductImage.isEmpty()) {
+            // Delete existing image file
+            Path existingFilePath = Paths.get(UPLOAD_DIRECTORY, existingProduct.getProductImage());
+            Files.deleteIfExists(existingFilePath);
+
+            // Save new image file
+            String fileName = UUID.randomUUID() + "productImage" + newProductImage.getOriginalFilename();
+            Path newFilePath = Paths.get(UPLOAD_DIRECTORY, fileName);
+            Files.write(newFilePath, newProductImage.getBytes());
+
+            existingProduct.setProductImage(fileName);
+        }
+
+        productRepository.save(existingProduct);
     }
 }
 
