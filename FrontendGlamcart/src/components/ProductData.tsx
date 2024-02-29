@@ -49,29 +49,27 @@ const ProductData: React.FC<ProductDataProps> = ({ search }) => {
     <>
       {filteredData?.map((product?: any) => (
         <tr key={product?.id}>
-          <td>{product?.id}</td>
+          <td className={"pl-3"}>{product?.id}</td>
           <td>{product?.category?.name}</td>
           <td>{product?.productName}</td>
-          <td>
-            <img src={`data:image/jpeg;base64,${product?.productImage}`} width="45px" alt={product?.productName}/>
-           
-            </td>
+          <td><h1 className={"flex justify-center mt-1 h-6"}>
+            <img src={`data:image/jpeg;base64,${product?.productImage}`} width="45px"  alt={product?.productName}/>
+            </h1>
+          </td>
           <td>{product?.price}</td>
           <td>{product?.quantityInStock}</td>
           <td>{product?.description}</td>
-          <td>
+          <td className={"flex mt-1 gap-2 justify-center"}>
             <button
-              className={"edit-btn2"}
+              className={"w-10 h-8 rounded-xl flex justify-center items-center bg-gray-300 text-lg"}
               onClick={() => {
                 navigate(`/edit/${product?.id}`);
               }}
             >
               <CiEdit />
             </button>
-          </td>
-          <td>
             <button
-              className={"delete-btn2"}
+                className={"w-10 h-8 rounded-xl flex justify-center items-center bg-gray-300 text-lg"}
               onClick={() => {
                
                 if (window.confirm("Are you sure you want to delete this product?")) {

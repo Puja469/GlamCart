@@ -4,6 +4,8 @@ import axios from 'axios';
 import '../assets/css/Login.css';
 import {  doLogin} from '../auth/authService';
 import { useNavigate } from 'react-router-dom';
+import DefaultLayout from '../components/layouts/default-layout';
+
 
 
 
@@ -25,17 +27,18 @@ const Login: React.FC = () => {
       const response = await axios.post('http://localhost:8082/authenticate', credentials);
 
       if (response.status === 200) {
-        const { token,userId,admin} = response.data;
+        const { token,userId,admin,userName} = response.data;
 
         localStorage.setItem("userId",userId);
+        localStorage.setItem('userName', userName);
         
-        doLogin(token);
+        doLogin(token,userId,userName);
         if (admin) {
           
           navigate('/AdminDashboard');
         } else {
           
-          navigate('/HomeProduct');
+          navigate('/');
         }
 
         window.alert('Login successful');
@@ -50,7 +53,10 @@ const Login: React.FC = () => {
   };
 
   return (
+    <DefaultLayout >
+  
     <div className="login-container" >
+       
      
       <h2 className="user-login-header">Login</h2>
       <form className="user-login-form" onSubmit={handleLogin}>
@@ -92,7 +98,10 @@ const Login: React.FC = () => {
       </p>
 
       {error && <p style={{ color: 'red' }}>{error}</p>}
+    
+      
     </div>
+    </DefaultLayout>
   );
 };
 

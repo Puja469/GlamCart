@@ -21,7 +21,7 @@ const DefaultLayout = ({
   const location = useLocation();
   const isHome = location.pathname === '/';
   return (
-    <Fragment>
+    <>
       <Meta title={title} description={description} />
       <Header />
       {isHome && <Carousels />}
@@ -33,7 +33,7 @@ const DefaultLayout = ({
         {isHome && <DownFooter />}
         <Footer />
       </div>
-    </Fragment>
+    </>
   );
 };
 

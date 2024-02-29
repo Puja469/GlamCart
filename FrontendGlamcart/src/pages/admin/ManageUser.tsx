@@ -37,56 +37,32 @@ const ManageUser: React.FC = () =>  {
                     <header className={"user-header"}>
                         <h1>Manage User</h1>
 
-                        <div className={"search-wrapper2"}>
+                        <div className={"search-wrapper4"}>
                             <span><FaSearch /></span>
                             <input type={"search"} placeholder={"Search User"} value={search} onChange={(e)=> setSearch(e.target.value)}/>
                         </div>
-
-                        <div className={"user-wrapper2"}>
-                            <img src={"https://images.pexels.com/photos/14073969/pexels-photo-14073969.jpeg?auto=compress&cs=tinysrgb&w=800"} width={"40px"} height={"40px"} alt={"N"}/>
-                            <div>
-                                <h4>Admin</h4>
-                                <small>Super admin</small>
-                            </div>
-                        </div>
                     </header>
 
-                    <div className={"user-main-content"}>
-                        <div className={"c-main-content"}>
-                            
+                    <div className={"user-main-content ml-10 flex justify-center"}>
+                        <table className={"w-10/12 text-lg text-center rounded-xl "}>
+                            <thead className={"h-12 text-white bg-black rounded-xl gilroy-semibold"}>
+                                <tr>
+                                    <th className={"pl-4"}> ID</th>
+                                    <th className={"px-10"}>Full Name</th>
 
-                            <div className={"table-container2"}>
-                                <div className={"card-header2"}>
-                                    <h2>Users</h2>
-                                </div>
-                                <div className={"card-body2"}>
-                                    <table className={"table-bordered2"}>
-                                        <thead>
-                                        <tr className="table-userbox">
-                                            <th className={"id-box2"}>ID</th>
-                                            <th className={"name-box2"}>firstName</th>
-                                            <th className={"name-box2"}>lastName </th>
-                                            <th className={"name-box2"}>userName </th>
-                                            <th className={"name-box2"}>email </th>
-                                           
-                            
-                                            <th className={"delete-box2"}>Delete</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <CustomerData search={search}/>
-                                       
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+                                    <th className={"px-20"}>Email</th>
+                                    <th className={"px-10"}>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <CustomerData search={search}/>
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                </div>
-                </section>
-                    
-
+            </div>
+        </section>
   );
 };
 

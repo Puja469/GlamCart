@@ -2,12 +2,55 @@
 import {useLocation} from "react-router-dom";
 import { FaSearch  } from "react-icons/fa";
 import AdminSidebar from "./AdminSidebar.tsx";
-import '../../assets/css/AdminDashboard.css';
-  
+import '../../assets/css/admin/AdminDashboard.css';
+import {useQuery} from "@tanstack/react-query";
+import axios from "axios";
+import {BiSolidCategoryAlt} from "react-icons/bi";
+import {MdCollectionsBookmark} from "react-icons/md";
+
+
 function AdminDashboard(){
 
   const location = useLocation(); 
   const currentLocation = location.pathname;
+
+
+  const { data: ProductData } = useQuery({
+    queryKey: ["GETDATA"],
+    queryFn() {
+      return axios.get("http://localhost:8080/product/findAll",
+      {
+        headers:{authorization:"Bearer "+localStorage.getItem("accessToken")}
+     } );
+    },
+  });
+
+   
+  
+   const{data:CategoryData} = useQuery({
+    queryKey:["GETDATA"],
+    queryFn(){
+        return axios.get("http://localhost:8082/category/findAll",{
+            headers:{authorization:"Bearer "+localStorage.getItem("accessToken")}
+        
+    })
+}
+})
+
+
+const{data,refetch} = useQuery({
+    queryKey:["GETDATA"],
+    queryFn(){
+        return axios.get("http://localhost:8082/order/getAll",{
+            headers:{authorization:"Bearer "+localStorage.getItem("accessToken")}
+        
+    }).catch(error => console.error("Error fetching data:", error));
+}
+})
+console.log("Data:", data);
+
+
+
 
   return(
       <>
@@ -35,13 +78,14 @@ function AdminDashboard(){
                   </header>
 
                   <div className={"dashboard-main-content"}>
-                      <div className={"d-main-content"}>
+                    
+                     
                           
                       </div>
                   </div>
 
               </div>
-          </div>
+         
       </>
 
   )

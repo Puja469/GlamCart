@@ -10,6 +10,7 @@
     color: #ecf0f1;
     border-right: 2px solid #34495e;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   
 }
 
 .sidebar-brand {
@@ -28,7 +29,7 @@
 }
 
 .sidebar-list {
-    padding: 0;
+    padding: 20px 0 0 10px;
     list-style-type: none;
 }
 
@@ -36,21 +37,24 @@
     display: flex;
     align-items: center;
     height: 50px;
-    padding: 10px;
-    font-size: 16px;
+    padding: 25px 10px;
+    font-size: 17px;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .sidebar-list-item a,
 .sidebar-list-item span {
-    font-family: "Gilroy Medium";
+    font-family: 'poppins regular';
     color: #ecf0f1;
     text-decoration: none;
 }
 
 .sidebar-list-item:hover {
-    background-color: #3498db;
+    background-color: #FFC0CB;
+    color: #2c3e50;
+}
+.sidebar-list-item:hover span{
     color: #2c3e50;
 }
 
@@ -58,19 +62,22 @@
     margin-top: 20px;
 }
 
-.sidebar-btn button {
-    font-size: 1rem;
-    width: 100%;
+.sidebar-btn {
+    font-size: 1.1rem;
+    width: 80%;
     padding: 10px;
     border: none;
-    border-radius: 5px;
-    background-color: #e74c3c;
-    color: #ecf0f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    background-color: #b77b86;
+    color: #000000;
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.sidebar-btn button:hover {
-    background-color: #c0392b;
-    box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+.sidebar-btn:hover {
+    background-color: #8d4e59;
+    box-shadow: 0 0 10px rgba(86, 45, 41, 0.5);
 }

@@ -57,13 +57,16 @@ const Product: React.FC = () => {
 
 
     return (
+        <DefaultLayout title='Product shop'>
+
         <>
+          
             <div>
-            <DefaultLayout title='cart shop'>
+          
                 <section className={"product-background-image"}>
                 <div className={"check-out-container"}>
                 <h2></h2>
-                        <h1>Products</h1>
+                        {/* <h1>Products</h1> */}
                         
                    
                 </div>
@@ -74,9 +77,11 @@ const Product: React.FC = () => {
                     <Navbar filterItem={filterItem} menuList={menuList} />
                     <MenuCard menuData={menuData} />
                 </div>
-                </DefaultLayout>
+              
             </div>
+           
         </>
+        </DefaultLayout>
     );
 };
 

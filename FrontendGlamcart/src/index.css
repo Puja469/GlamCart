@@ -5,115 +5,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #111010;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #f7879a;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 1500px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 1em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #f06f85;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #f56d84;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-table {
-  margin: 1rem auto;
-  border-radius: 5px;
-  border: 3rem hidden #f5eeee;
-  box-shadow: 0 0 0 1px black;
-  overflow: hidden;
-  max-width: 80rem;
-  background-color: #000000B7;
-}
-
-thead {
-  font-size: 1.2rem;
-  background-color: #d2d2d2;
-  color: #2c2100;
-}
-
-th,td {
-  border: 1px solid #000000B7;
-  min-width: 5rem;
-  padding: 1.5rem;
-  line-height: 0.2;
-  border-radius: 5px;
-}
-
-td {
-  font-size: 1rem;
-  background-color: white;
-}
-
-h6{
-  font-size: 1rem;
-  font-family: Afacad;
-  font-weight: 200;
-  letter-spacing: -0.7px;
-  color: rgba(70, 1, 1, 0.63);
-} */
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  text-decoration: none;
+  font-family: 'poppins regular';
 }
+
+@font-face {
+  font-family: poppinsLight;
+  src: url("../public/Fonts/Poppins-Light.ttf") format('truetype');
+}
+@font-face {
+  font-family: poppins regular;
+  src: url("../public/Fonts/Poppins-Regular.ttf") format('truetype');
+}
+@font-face {
+  font-family: poppins semi-bold;
+  src: url("../public/Fonts/Poppins-SemiBold.ttf") format('truetype');
+}
+
+.poppins-light{
+  font-family: 'poppinsLight';
+  color: #929292;
+}
+.poppins-semibold{
+  font-family: 'poppins semi-bold';
+}
+
 
 body {
   background: #f1f1f1 !important;
@@ -142,7 +63,7 @@ a {
 
 .nav-link span {
   font-size: 1rem;
-  /* height:2rem; */
+  
   transition: all 0.2s ease;
 }
 
@@ -167,7 +88,7 @@ a {
 }
 
 section {
-  padding: 60px 0;
+  /* padding: 60px 0; */
   overflow: hidden;
   position: relative;
 }
@@ -210,3 +131,8 @@ section {
   font-size: 0.5em !important;
   color: #000 !important;
 }
+
+td{
+  text-align: center;
+}
+

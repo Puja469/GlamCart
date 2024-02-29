@@ -14,7 +14,7 @@ const Carousels = () => {
         <img
           loading='lazy'
           className='d-block w-full '
-          src='https://www.shutterstock.com/image-photo/makeup-professional-cosmetics-on-pink-600nw-1398700589.jpg'
+          src='https://as2.ftcdn.net/v2/jpg/02/81/76/79/1000_F_281767961_OzR7zjNhsdKw7DUZMFtwgXAZl2UrprX3.jpg'
           alt='First slide'
         />
       </Carousel.Item>
@@ -22,15 +22,15 @@ const Carousels = () => {
         <img
           loading='lazy'
           className='d-block w-full '
-          src='https://cdn1.vectorstock.com/i/1000x1000/02/20/cosmetics-beauty-products-for-make-up-sale-banner-vector-25170220.jpg'
+          src='https://cdn.vectorstock.com/i/preview-2x/99/16/lipstick-cosmetics-make-up-beauty-product-banner-vector-29159916.webp'
           alt='Second slide'
         />
       </Carousel.Item>
       <Carousel.Item className='carsouel__item'>
         <img
           loading='lazy'
-          className='d-block w-full '
-          src='https://i.pinimg.com/736x/fc/97/32/fc9732d8c3a636bad34c235702800188.jpg'
+          className='d-block w-full'
+          src='https://cdn.vectorstock.com/i/preview-2x/29/05/lipstick-cosmetics-makeup-product-with-3d-objects-vector-43512905.webp'
           alt='Third slide'
         />
       </Carousel.Item>

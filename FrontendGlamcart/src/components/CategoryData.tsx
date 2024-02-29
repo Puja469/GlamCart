@@ -37,6 +37,7 @@ const CategoryData: React.FC<CategoryDataProps> = ({ search}) => {
                 return axios.delete("http://localhost:8082/category/delete/"+id,{
                     headers:{authorization:"Bearer "+localStorage.getItem("accessToken")}
             });
+            
             },onSuccess(){refetch()}
         }
     )
@@ -46,19 +47,29 @@ const CategoryData: React.FC<CategoryDataProps> = ({ search}) => {
             {
                 filteredData?.map((i:any) =>{
                     return(
-                        <tr key={i?.id}>
+                        <tr key={i?.id} className="
+                    ">
                             <td>{i?.id}</td>
                             <td>{i?.name}</td>
-                            <td><button className={"edit-btn2"} onClick={()=>{
-                                navigate("/edit/"+i?.id);
+                            <td className={"flex mt-1 gap-2 justify-center"}>
+                                <button
+                                    className={"w-12 h-8 rounded-xl flex justify-center items-center bg-gray-300 text-lg"}
+                                    onClick={()=>{
+                                navigate("/EditCategory/"+i?.id);
                                 console.log(i?.id)
                             }}><CiEdit /></button></td>
-                            <td><button className={"delete-btn2"} onClick={() => {
+                            <td><h1 className={"flex justify-center"}>
+                                <button
+                                className={"w-12 h-8 rounded-xl flex justify-center items-center bg-gray-300 text-lg"}
+                                onClick={() => {
                                 
                                 if (window.confirm("Are you sure you want to delete this category?")) {
+                                    
                                     deleteByIdApi.mutate(i?.id);
+                                    
+                                    
                                 }
-                            }}><MdDelete /></button></td>
+                            }}><MdDelete /></button></h1></td>
                         </tr>
                     )
                 })

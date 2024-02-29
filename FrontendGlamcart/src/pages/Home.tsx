@@ -1,32 +1,27 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import DefaultLayout from "../components/layouts/default-layout";
-// import ProductCard from "../components/product-card";
+import Product from "./Product";
 import Loader from "../components/UI/loader";
-// import { useAppDispatch, useAppSelector } from "../redux";
-// import { getProducts } from "../redux/products/slice-list";
-import { trackWindowScroll } from "react-lazy-load-image-component";
 
-const HomePage = () => {
+import { trackWindowScroll } from "react-lazy-load-image-component";
+import FeaturedProducts from "./popularProduct";
+
+
+
+
+const HomePage:React.FC= () => {
   
 
+
+
   return (
-    <DefaultLayout>
+    <DefaultLayout title='GlamCart'>
       <Container>
-        <h2 style={{ color: "#e03a3c" }} className="mt-3">
-          Least Products
-        </h2>
-        {/* {loading || !products ? ( */}
-          <Loader />
-        ) : (
+      <h1 className={"md:text-4xl text-2xl gilroy-bold"}>Featured Products</h1>
+        <FeaturedProducts/>
           <Row md={3} xs={1} lg={3}>
-            {/* {products.map((product) => (
-              <Col key={product._id}>
-                <ProductCard product={product} />
-              </Col> */}
-            ))
           </Row>
-        )
       </Container>
     </DefaultLayout>
   );

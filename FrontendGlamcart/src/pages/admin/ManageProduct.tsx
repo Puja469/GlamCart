@@ -44,14 +44,14 @@ const ManageProduct: React.FC = () => {
           }
         } catch (error) {
           console.error("Error adding product:", error);
-          toast.error(`Error: ${error.message}`);
+          toast.error(`Error: $`);
         }
       },
     });
   
     const onSubmit = (formData: any) => {
         const formDataWithFile = new FormData();
-        formDataWithFile.append("id", formData.id);
+        // formDataWithFile.append("id", formData.id);
         formDataWithFile.append("categoryId", formData.categoryId);
         formDataWithFile.append("productName", formData.productName);
         formDataWithFile.append("productImage", formData.productImage[0]);
@@ -99,7 +99,7 @@ const ManageProduct: React.FC = () => {
                     <AdminSidebar activePage={currentLocation} />
                 </div>
 
-                <div className={"product-right"}>
+                <div className={"product-right h-auto "}>
                     <header className={"product-header"}>
                         <h1>Manage Product</h1>
 
@@ -107,46 +107,31 @@ const ManageProduct: React.FC = () => {
                             <span><FaSearch /></span>
                             <input type={"search"} placeholder={"Search Product"} value={search} onChange={(e)=> setSearch(e.target.value)}/>
                         </div>
-
-                        <div className={"user-wrapper3"}>
-                            <img src={"https://images.pexels.com/photos/14073969/pexels-photo-14073969.jpeg?auto=compress&cs=tinysrgb&w=800"} width={"40px"} height={"40px"} alt={"N"}/>
-                            <div>
-                                <h4>Admin</h4>
-                                <small>Super admin</small>
-                            </div>
-                        </div>
                     </header>
 
-                    <div className={"product-main-content"}>
-                        <div className={"c-main-content"}>
-                            <div className={"btn2"}>
-                                <button type={"button"} onClick={toggleCatgModal}><span><IoIosAddCircle style={{fontSize:"1.5rem",marginBottom:"-4px"}}/></span>Add Product</button>
+                    <div className={"product-main-content "}>
+                        <div className={"c-main-content pb-10"}>
+                            <div className={"float-right mb-4 -mt-4"}>
+                                <button className={"rounded-xl h-12 w-36 bg-gray-800 flex text-white justify-center items-center"} type={"button"} onClick={toggleCatgModal}><span><IoIosAddCircle style={{fontSize:"1.2rem",marginRight:"2px"}}/></span>Add Product</button>
                             </div>
-
-                            <div className={"table-container3"}>
-                                <div className={"card-header3"}>
-                                  
-                                </div>
-                                <div className={"card-body3"}>
-                                    <table className={"table-bordered3"}>
-                                        <thead >
-                                        <tr className="table-box">
-                                            <th className={"id-box3"}>ID</th>
-                                            <th className={"name-box3"}>Category ID</th>
-                                            <th className={"name-box3"}>ProductName</th>
-                                            <th className={"name-box3"}>ProductImage</th>
-                                            <th className={"name-box3"}>Price </th>
-                                            <th className={"name-box3"}>Quantity </th>
-                                            <th className={"name-box3"}>Description </th>
-                                            <th className={"edit-box3"}>Edit</th>
-                                            <th className={"delete-box3"}>Delete</th>
+                            <div className={"ml-10  table-container3"}>
+                                <table className={"mt-8 w-full text-sm rounded-xl"}>
+                                    <thead className={"h-10 text-white text-center bg-black rounded-xl"}>
+                                        <tr>
+                                            <th className={"pl-3"}>ID</th>
+                                            <th className={"px-5"}>Category</th>
+                                            <th className={"px-10"}>productName</th>
+                                            <th className={"px-2"}>productImage</th>
+                                            <th className={"px-6"}>Price</th>
+                                            <th className={"px-4"}>Quantity</th>
+                                            <th >Description</th>
+                                            <th className={"px-8"}>Action</th>
                                         </tr>
-                                        </thead>
-                                        <tbody>
+                                    </thead>
+                                    <tbody className={"w-full"}>
                                         <ProductData search={search}/>
                                         </tbody>
-                                    </table>
-                                </div>
+                                </table>
                             </div>
                         </div>
 
@@ -160,7 +145,7 @@ const ManageProduct: React.FC = () => {
                 <div className="add-product-modal" >
                     <div onClick={toggleCatgModal} className="add-product-overlay"></div>
                     <div className="add-product-modal-content">
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form onSubmit={handleSubmit(onSubmit)} className={"text-black"}>
                             <h2>Add Product</h2>
                             <button className="close-add-product-btn"  onClick={() => {
                                 toggleCatgModal();
@@ -169,50 +154,43 @@ const ManageProduct: React.FC = () => {
                                 <FaRegWindowClose />
                             </button>
 
-                            <div className={"product-id-number"}>
-                                <label>ID</label>
-                                <input type={"number"}   placeholder={"Enter ID"}/>
-                            </div>
                             <div className={"category-id-number1"}>
                                 <label>CategoryID</label>
                                 <input
                                    type={"number"}
-                                   
-                                  
+                                   className={"ml-2 bg-transparent border border-gray-800 rounded"}
                                     placeholder={"Enter category ID"}
                                      {...register("categoryId", { required: "Category ID is required!!" })} />
-                                     <h6 style={{ paddingLeft: "3px" }}>{errors?.categoryId?.message}</h6>
+                                     <h6 style={{ paddingLeft: "3px" }}></h6>
                                      
                             </div>
-                            <div className={"product-name"}>
-                                <label >Product Name</label>
-                                <input type={"text"}  placeholder={"Enter product Name"} {...register("productName",{required:"product Name is required!!"})}/>
-                                <h6 style={{paddingLeft:"3px"}}>{errors?.name?.message}</h6>
+                            <div className={"w-full h-12 border-solid border rounded-xl border-gray-800 mt-5 flex items-center pl-3 pr-2"}>
+                                <input type={"text"} placeholder={"Enter Product Name"} className={"w-full  outline-none appearance-none bg-transparent"} {...register("productName",{required:"Product name is required"})}/>
                             </div>
-                            <div className={"product-image"}>
-                                <label>Product Image</label>
-                                <input type={"file"}   placeholder={"file"} {...register("productImage",{required:"product image is required!!"})}/>
-                                <h6 style={{paddingLeft:"6px"}}>{errors?.productImage?.message}</h6>
+                            <div className={"flex justify-between mt-5"}>
+                                <div className={"w-5/12 h-12 border-solid border rounded-xl border-gray-800 flex items-center pl-3 pr-2 mr-1"}>
+                                    <input type={"text"} placeholder={"Enter Description"} className={"w-full outline-none appearance-none bg-transparent"} {...register("description",{required:"Description name is required"})}/>
+                                </div>
+                                <div className={"w-7/12 h-12 border-solid border rounded-xl border-gray-800 flex items-center pl-3 pr-2"}>
+                                    <input type={"text"} placeholder={"Enter price"} className={"w-full outline-none appearance-none bg-transparent"} {...register("price",{required:"price is required"})}/>
+                                </div>
                             </div>
-                            <div className={"product-price"}>
-                                <label>Price</label>
-                                <input type={"number"}  placeholder={"Enter product Price"} {...register("price",{required:"product price is required!!"})}/>
-                                <h6 style={{ paddingLeft: "3px" }}>{errors?.price?.message}</h6>
-                               
-                            </div>
-                            <div className={"product-quantity"}>
+                            <div className={"w-7/12 justify-between items-center pl-1"}>
+                                    <h1 className={"text-lg pl-1"}>Select Image: </h1>
+                                    <div className={"w-full h-12 justify-between border-solid border rounded-xl border-gray-800 flex items-center pl-1"}>
+                                        <input type={"file"} className={"text-gray-400"} {...register("productImage")}/>
+                                    </div>
+                                </div>
+                           
+                            <div className="product-quantity" style={{ marginTop: '20px' }}>
                                 <label>QuantityInStock</label>
-                                <input type={"number"}   placeholder={"Enter product Quantity"} {...register("quantityInStock",{required:"product Quantity is required!!"})}/>
-                                <h6 style={{ paddingLeft: "3px" }}>{errors?.quantityInStock?.message}</h6>
+                                <input type={"number"} className={"ml-2 bg-transparent border border-gray-800 rounded"}  placeholder={"Enter product Quantity"} {...register("quantityInStock",{required:"product Quantity is required!!"})}/>
+                                <h6 style={{ paddingLeft: "5px"  }}></h6>
                                
                             </div>
-                            <div className={"product-discription"}>
-                                <label>Discription</label>
-                                <input type={"text"}   placeholder={"Enter product discription"} {...register("discription",{required:"product discription is required!!"})}/>
-                                <h6 style={{ paddingLeft: "3px" }}>{errors?.description?.message}</h6>
-                            </div>
-                            <div className={"product-name-add-btn"}>
-                                <button type={"submit"}>Add</button>
+                           
+                            <div className={"product-name-add-btn w-full"}>
+                                <button className={"w-20 h-12 bg-gray-700 text-black rounded-xl"} type={"submit"}>Add</button>
                             </div>
                         </form>
                     </div>

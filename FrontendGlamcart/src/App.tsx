@@ -9,9 +9,11 @@ import ManageUser from './pages/admin/ManageUser';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 
-import Contact from './pages/Contact';
-import Cart from './pages/Cart';
+// import Contact from './pages/Contact';
+import Cart from './pages/cart/Cart';
 import Product from './pages/Product';
+import EditCategory from './pages/admin/EditCategory';
+import ManageOrder from './pages/admin/ManageOrder';
 
 
 
@@ -31,9 +33,13 @@ const App:React.FC = () => {
       <Route path="/manageuser" element={<ManageUser/>}/>
       <Route path="/" element={<Home/>}/>
       <Route path="/register" element={<Signup/>}/>
-      <Route path="/contact" element={<Contact/>}/>
+      {/* <Route path="/contact" element={<Contact/>}/> */}
       <Route path="/cart" element={<Cart/>}/>
       <Route path="/product" element={<Product/>}/>
+      <Route path="/EditCategory/:pk_id" element={<EditCategory/>}/>
+      <Route path="/manageorder" element={<ManageOrder/>}/>
+      <Route path="/EditProduct/:pk_id" element={<ManageProduct/>}/>
+      
      
 
       

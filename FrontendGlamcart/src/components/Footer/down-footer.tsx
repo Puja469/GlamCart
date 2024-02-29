@@ -18,12 +18,12 @@ const DownFooter = () => {
                 <br />
                 Nepal
                 <br />
-                France
+               Kathmandu
                 <br />
                 <br />
                 <strong>Phone:</strong> 9805953190
                 <br />
-                <strong>Email:</strong> glamcart@me.com
+                <strong>Email:</strong> glamcart@gmail.com
                 <br />
               </p>
             </Col>

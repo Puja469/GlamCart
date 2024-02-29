@@ -12,7 +12,7 @@ const CustomerData: React.FC<CustomerDataProps> = ({ search}) => {
 
     const navigate = useNavigate();
 
-    
+    // Fetching data from API
     const{data,refetch} = useQuery({
         queryKey:["GETDATA"],
         queryFn(){
@@ -24,12 +24,12 @@ const CustomerData: React.FC<CustomerDataProps> = ({ search}) => {
     })
    
 
-   
+    //Searching data
     const filteredData = data?.data.filter((customer:any) =>
-       customer.firstName?.toLowerCase().includes(search.toLowerCase())
+       customer.fullName?.toLowerCase().includes(search.toLowerCase())
     );
 
-    
+    //Deleting data
     const deleteByIdApi=useMutation(
         {
             mutationKey:["DELETE_BY_ID"],
@@ -44,22 +44,23 @@ const CustomerData: React.FC<CustomerDataProps> = ({ search}) => {
     return (
         <>
             {
-                filteredData?.map((i:any) =>{
+                filteredData?.map((customer:any) =>{
                     return(
-                        <tr key={i?.id}>
-                            <td>{i?.id}</td>
-                            <td>{i?.firstName}</td>
-                            <td>{i?.lastName}</td>
-                            <td>{i?.userName}</td>
-                            <td>{i?.email}</td>
+                        <tr key={customer?.id}>
+                            <td>{customer?.id}</td>
+                            <td>{customer?.fullName}</td>
+                           
                             
-                            <td><button className={"delete-btn2"} onClick={() => {
-                                
-                                
-                                if (window.confirm("Are you sure you want to delete this category?")) {
-                                    deleteByIdApi.mutate(i?.id);
+                            <td>{customer?.email}</td>
+                            
+                            <td><h1 className={"flex justify-center"}><button
+                                className={"w-10 h-8 rounded-xl flex justify-center items-center bg-gray-300 text-lg"}
+                                onClick={() => {
+                                // Display confirmation prompt before deletion
+                                if (window.confirm("Are you sure you want to delete this user?")) {
+                                    deleteByIdApi.mutate(customer?.id);
                                 }
-                            }}><MdDelete /></button></td>
+                            }}><MdDelete /></button></h1></td>
                         </tr>
                     )
                 })
