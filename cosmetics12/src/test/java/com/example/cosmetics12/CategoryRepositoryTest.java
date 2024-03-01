@@ -2,7 +2,7 @@ package com.example.cosmetics12;
 
 import com.example.cosmetics12.entity.Category;
 
-import com.example.cosmetics12.entity.User;
+
 import com.example.cosmetics12.repository.CategoryRepository;
 import com.example.cosmetics12.repository.ProductRepository;
 import org.assertj.core.api.Assertions;
