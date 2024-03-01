@@ -14,6 +14,7 @@ import Cart from './pages/cart/Cart';
 import Product from './pages/Product';
 import EditCategory from './pages/admin/EditCategory';
 import ManageOrder from './pages/admin/ManageOrder';
+import ForgetPassword from './pages/forgetPassword';
 
 
 
@@ -39,6 +40,7 @@ const App:React.FC = () => {
       <Route path="/EditCategory/:pk_id" element={<EditCategory/>}/>
       <Route path="/manageorder" element={<ManageOrder/>}/>
       <Route path="/EditProduct/:pk_id" element={<ManageProduct/>}/>
+      <Route path="/forgetpassword" element={<ForgetPassword/>}/>
       
      
 

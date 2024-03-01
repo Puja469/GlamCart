@@ -1,11 +1,11 @@
 .glass-signup-section {
     position: relative;
-    background-image: url('src/images/logbg1.jpg'); /* Replace with the path to your background image */
+    background-image: url('src/images/logbg1.jpg'); 
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-    height: 100vh; /* Adjust the height as needed to cover the entire viewport */
+    height: 100vh; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,7 +13,7 @@
   
   
   .glass-signup-content {
-    background: rgba(242, 235, 235, 0.1); /* Glass-like background color */
+    background: rgba(242, 235, 235, 0.1); 
     padding: 40px;
     border-radius: 8px;
     width: 400px;
